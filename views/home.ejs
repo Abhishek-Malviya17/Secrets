@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<%= %>
+<div class="content">
+  <div>
+    <i class="fas fa-key fa-6x"></i>
+    <h1 class="display-3">Secrets</h1>
+    <p class="lead">Don't keep your secrets, share them anonymously!</p>
+
+    <% usersWithSecrets.forEach(function(user){ %>
+        <p class="secret-text"><%=user.secret%></p>
+    <% }) %>
+
+    <hr>
+    <% if(isAuthenticated){ %>
+      <a class="btn btn-light btn-lg" href="/submit" role="button">Add new Secret️😃</a>
+      <a class="btn btn-light btn-lg" href="/logout" role="button">Log Out</a>
+      <!-- <form action="/delete" method="post"> -->
+      <a class="btn btn-light btn-lg" href="/delete" name="checkbox" value="<%=usersWithSecrets._id%>"><i class="fa-solid fa-trash"></i></a>
+      <!-- </form> -->
+     <% } else {   %>
+       <a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
+       <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
+    <% } %>
+
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>
